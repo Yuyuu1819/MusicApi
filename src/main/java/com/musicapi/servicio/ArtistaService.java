@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-// Servicio al que llaman donde se guardan los datos
+ /**
+ * Servicio al que llaman donde se guardan los datos
+ */
+
 public class ArtistaService {
     private final ArtistaRepository artistaRepository;
     /** Constructor de la clase ArtistaService
@@ -15,8 +18,16 @@ public class ArtistaService {
      * @param artistaRepository Servicio al que llamar donde se guardan los datos
      */
     public ArtistaService(ArtistaRepository artistaRepository) {this.artistaRepository = artistaRepository;}
-    // Obtiene a todos los artistas, @return Lista de artistas
-    public List<Artista> getArtistas() {return artistaRepository.getArtistas();}
-    public Artista verArtista(String nombre) { return artistaRepository.verArtista(nombre);}
-    public void deleteArtista(Artista artista) { artistaRepository.deleteArtista(artista);}
+
+    public void addArtista(Artista artista) { artistaRepository.addArtista(artista); }
+
+    public List<Artista> getArtistas() {return artistaRepository.getArtistas(); }
+
+    public int getId(Artista artista) { return artistaRepository.getId(artista); }
+
+    public Artista verArtista(String nombre) { return artistaRepository.verArtista(nombre); }
+
+    public boolean actualizarArtista(int id, Artista artista) { return artistaRepository.actualizarArtista(id, artista); }
+
+    public boolean deleteArtista(int id) { return artistaRepository.deleteArtista(id); }
 }
